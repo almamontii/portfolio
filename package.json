@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-artistico",
+  "version": "1.0.0",
+  "description": "Portfolio artístico de Alma",
+  "scripts": {
+    "build": "echo 'No build required - static site'"
+  }
+}
+ 
