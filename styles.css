@@ -1222,6 +1222,69 @@ footer {
     .mobile-contact-content {
         padding: 2rem !important;
         margin: 1rem;
+        color: #ffffff !important;
+        /* Texto blanco */
+    }
+
+    .mobile-contact-content {
+        padding: 3rem 2rem !important;
+        margin: 0 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 100vh !important;
+        position: absolute !important;
+        top: 40% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+    }
+
+    .mobile-contact-content h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .mobile-contact-content p {
+        margin-bottom: 1.5rem !important;
+        font-size: 1.2rem !important;
+    }
+
+    .mobile-about-content h1 {
+        color: #000000 !important;
+        /* ABOUT ME en negro */
+    }
+
+    .mobile-about-content h2,
+    .mobile-about-content h4,
+    .mobile-contact-content h2 {
+        color: #ffffff !important;
+        /* Otros títulos en blanco */
+    }
+
+    .mobile-about-content p,
+    .mobile-contact-content p,
+    .mobile-about-content .about-description,
+    .mobile-about-content .about-text-small,
+    .mobile-contact-content .about-description,
+    .mobile-contact-content .about-text-small {
+        color: #ffffff !important;
+        /* Párrafos en blanco */
+    }
+
+    .mobile-contact-content .contact-email,
+    .mobile-contact-content .instagram-link {
+        color: #ffffff !important;
+        /* Enlaces en blanco */
+    }
+
+    .mobile-contact-content .contact-label {
+        color: #ffffff !important;
+        /* "Gmail de contacto" en blanco */
     }
 
     /* Hide About/Contact section on mobile home page */
