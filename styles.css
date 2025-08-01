@@ -1229,7 +1229,7 @@ footer {
     .mobile-contact-content {
         padding: 3rem 2rem !important;
         margin: 0 !important;
-        font-size: 1.1rem !important;
+        font-size: 16px !important;
         line-height: 1.8 !important;
         text-align: center !important;
         display: flex !important;
@@ -1251,7 +1251,11 @@ footer {
 
     .mobile-contact-content p {
         margin-bottom: 1.5rem !important;
-        font-size: 1.2rem !important;
+        font-size: 16px !important;
+    }
+
+    .mobile-contact-content p:has(+ a) {
+        margin-bottom: -0.5rem !important;
     }
 
     .mobile-about-content h1 {
