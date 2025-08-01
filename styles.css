@@ -1207,14 +1207,21 @@ footer {
     }
 }
 
-/* Mobile: Use specific mobile images */
+/* Mobile: Red background for About and Contact pages */
 @media (max-width: 768px) {
-    .mobile-about {
-        background-image: url('images/mobile-about.jpg');
+
+    .mobile-about,
+    .mobile-contact {
+        background-image: none !important;
+        background-color: #af2022 !important;
+        /* Fondo rojo personalizado */
+        background: #af2022 !important;
     }
 
-    .mobile-contact {
-        background-image: url('images/mobile-contact.jpg');
+    .mobile-about-content,
+    .mobile-contact-content {
+        padding: 2rem !important;
+        margin: 1rem;
     }
 
     /* Hide About/Contact section on mobile home page */

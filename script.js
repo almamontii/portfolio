@@ -1,5 +1,39 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- MOBILE NAVIGATION FUNCTIONALITY ---
+    function isMobileDevice() {
+        return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    function updateNavigationForMobile() {
+        const aboutLink = document.getElementById('about-link');
+        const contactLink = document.getElementById('contact-link');
+
+        if (isMobileDevice()) {
+            // En móvil, redirigir a páginas separadas
+            if (aboutLink) {
+                aboutLink.href = 'about.html';
+            }
+            if (contactLink) {
+                contactLink.href = 'contact.html';
+            }
+        } else {
+            // En desktop, mantener navegación por secciones
+            if (aboutLink) {
+                aboutLink.href = '#sobre-mi';
+            }
+            if (contactLink) {
+                contactLink.href = '#contact-section';
+            }
+        }
+    }
+
+    // Llamar al cargar la página
+    updateNavigationForMobile();
+
+    // Actualizar al cambiar el tamaño de la ventana
+    window.addEventListener('resize', updateNavigationForMobile);
+
     // --- STICKY HEADER FUNCTIONALITY ---
     const stickyHeader = document.getElementById('stickyHeader');
     let isCondensed = false;
