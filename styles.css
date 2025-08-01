@@ -642,48 +642,47 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     .music-player {
-        top: auto;
-        bottom: 20px;
-        right: -250px;
-        /* Oculto en móvil */
-        width: 250px;
-        height: 120px;
+        display: none !important;
+        /* Oculto completamente en vista móvil */
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .music-player {
+        display: none !important;
+        /* Oculto completamente en vista móvil */
+    }
+
+
+}
+
+/* Desktop Music Player - Ensure proper positioning */
+@media (min-width: 769px) {
+    .music-player {
+        position: fixed;
+        top: 50%;
+        right: -300px;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 152px;
+        bottom: auto;
     }
 
     .music-player.expanded {
         right: 0;
     }
 
-    .music-content {
-        width: 250px;
-        height: 120px;
-    }
-
     .music-toggle-btn {
-        left: -60px;
-        padding: 15px 10px;
-        font-size: 12px;
-        min-height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .music-player {
-        right: -220px;
-        width: 220px;
-        height: 100px;
-    }
-
-    .music-content {
-        width: 220px;
-        height: 100px;
-    }
-
-    .music-toggle-btn {
-        left: -55px;
-        padding: 12px 8px;
-        font-size: 11px;
-        min-height: 50px;
+        position: absolute;
+        left: -54px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 20px 12px;
+        font-size: 14px;
+        min-height: 80px;
+        width: 54px;
     }
 }
 
@@ -692,7 +691,7 @@ footer {
     grid-column: 1 / -1;
     padding: 0;
     margin-top: 3rem;
-    background-image: url('images/about m.jpg');
+    background-image: url('images/Copia%20de%20about%20m.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1139,5 +1138,182 @@ footer {
     .social-links-contact {
         justify-content: center;
         flex-wrap: wrap;
+    }
+}
+
+/* Mobile Pages Styles - Default desktop configuration */
+.mobile-about,
+.mobile-contact {
+    grid-column: 1 / -1;
+    padding: 0;
+    background-image: url('images/Copia%20de%20about%20m.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.mobile-about-content,
+.mobile-contact-content {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: calc(100% - 2rem) !important;
+    height: auto !important;
+    padding: 2rem 1.5rem !important;
+    text-align: center;
+    background: transparent;
+    margin: 2rem 1rem;
+    border-radius: 15px;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+/* Mobile responsive styles for mobile pages */
+@media (max-width: 768px) {
+
+    .mobile-about-content,
+    .mobile-contact-content {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem 1rem !important;
+        width: calc(100% - 1rem) !important;
+    }
+
+    .mobile-about,
+    .mobile-contact {
+        margin-top: 18rem;
+    }
+
+    body.header-condensed .mobile-about,
+    body.header-condensed .mobile-contact {
+        margin-top: 5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .mobile-about-content,
+    .mobile-contact-content {
+        margin: 0.5rem 0.25rem;
+        padding: 1rem 0.8rem !important;
+        width: calc(100% - 0.5rem) !important;
+    }
+
+    .mobile-about,
+    .mobile-contact {
+        margin-top: 16rem;
+    }
+}
+
+/* Mobile: Red background for About and Contact pages */
+@media (max-width: 768px) {
+
+    .mobile-about,
+    .mobile-contact {
+        background-image: none !important;
+        background-color: #af2022 !important;
+        /* Fondo rojo personalizado */
+        background: #af2022 !important;
+    }
+
+    .mobile-about-content,
+    .mobile-contact-content {
+        padding: 2rem !important;
+        margin: 1rem;
+        color: #ffffff !important;
+        /* Texto blanco */
+        font-family: "Intel One Mono", monospace !important;
+        font-size: 14px !important;
+    }
+
+    .mobile-contact-content {
+        padding: 3rem 2rem !important;
+        margin: 0 !important;
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 100vh !important;
+        position: absolute !important;
+        top: 40% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .mobile-contact-content p {
+        margin-bottom: 1.5rem !important;
+        font-size: 16px !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content p:has(+ a) {
+        margin-bottom: -1rem !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-about-content h1 {
+        color: #000000 !important;
+        /* ABOUT ME en negro */
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-about-content h2,
+    .mobile-about-content h4,
+    .mobile-contact-content h2 {
+        color: #ffffff !important;
+        /* Otros títulos en blanco */
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-about-content p,
+    .mobile-contact-content p,
+    .mobile-about-content .about-description,
+    .mobile-about-content .about-text-small,
+    .mobile-contact-content .about-description,
+    .mobile-contact-content .about-text-small {
+        color: #ffffff !important;
+        /* Párrafos en blanco */
+        font-family: "Intel One Mono", monospace !important;
+        font-size: 14px !important;
+    }
+
+    .mobile-contact-content .contact-email,
+    .mobile-contact-content .instagram-link {
+        color: #ffffff !important;
+        /* Enlaces en blanco */
+        text-shadow: none !important;
+        text-decoration: underline !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content .commission-note {
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content .contact-label {
+        color: #ffffff !important;
+        /* "Gmail de contacto" en blanco */
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    /* Hide About/Contact section on mobile home page */
+    .about-section:not(.mobile-about):not(.mobile-contact) {
+        display: none;
     }
 }
