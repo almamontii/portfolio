@@ -1,5 +1,30 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- STICKY HEADER FUNCTIONALITY ---
+    const stickyHeader = document.getElementById('stickyHeader');
+    let isCondensed = false;
+
+    function updateHeader() {
+        const scrollPosition = window.scrollY;
+        const shouldCondense = scrollPosition > 100;
+
+        if (shouldCondense && !isCondensed) {
+            stickyHeader.classList.add('condensed');
+            document.body.classList.add('header-condensed');
+            isCondensed = true;
+        } else if (!shouldCondense && isCondensed) {
+            stickyHeader.classList.remove('condensed');
+            document.body.classList.remove('header-condensed');
+            isCondensed = false;
+        }
+    }
+
+    // Detectar scroll
+    window.addEventListener('scroll', updateHeader);
+
+    // Llamar una vez al cargar la página
+    updateHeader();
+
     // --- MUSIC PLAYER COLLAPSIBLE ---
     const musicPlayer = document.getElementById('musicPlayer');
     const musicToggle = document.getElementById('musicToggle');
