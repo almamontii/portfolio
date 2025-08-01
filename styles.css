@@ -1224,6 +1224,8 @@ footer {
         margin: 1rem;
         color: #ffffff !important;
         /* Texto blanco */
+        font-family: "Intel One Mono", monospace !important;
+        font-size: 14px !important;
     }
 
     .mobile-contact-content {
@@ -1242,6 +1244,8 @@ footer {
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
         width: 100% !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
     }
 
     .mobile-contact-content h2 {
@@ -1252,15 +1256,19 @@ footer {
     .mobile-contact-content p {
         margin-bottom: 1.5rem !important;
         font-size: 16px !important;
+        font-family: "Intel One Mono", monospace !important;
     }
 
     .mobile-contact-content p:has(+ a) {
-        margin-bottom: -0.5rem !important;
+        margin-bottom: -1rem !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
     }
 
     .mobile-about-content h1 {
         color: #000000 !important;
         /* ABOUT ME en negro */
+        font-family: "Intel One Mono", monospace !important;
     }
 
     .mobile-about-content h2,
@@ -1268,6 +1276,7 @@ footer {
     .mobile-contact-content h2 {
         color: #ffffff !important;
         /* Otros títulos en blanco */
+        font-family: "Intel One Mono", monospace !important;
     }
 
     .mobile-about-content p,
@@ -1278,17 +1287,29 @@ footer {
     .mobile-contact-content .about-text-small {
         color: #ffffff !important;
         /* Párrafos en blanco */
+        font-family: "Intel One Mono", monospace !important;
+        font-size: 14px !important;
     }
 
     .mobile-contact-content .contact-email,
     .mobile-contact-content .instagram-link {
         color: #ffffff !important;
         /* Enlaces en blanco */
+        text-shadow: none !important;
+        text-decoration: underline !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content .commission-note {
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
     }
 
     .mobile-contact-content .contact-label {
         color: #ffffff !important;
         /* "Gmail de contacto" en blanco */
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
     }
 
     /* Hide About/Contact section on mobile home page */
