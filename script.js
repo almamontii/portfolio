@@ -1,63 +1,44 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- MUSIC PLAYER DRAG ---
+    // --- MUSIC PLAYER COLLAPSIBLE ---
     const musicPlayer = document.getElementById('musicPlayer');
-    if (musicPlayer) {
-        musicPlayer.style.left = (window.innerWidth - musicPlayer.offsetWidth - 20) + 'px';
-        musicPlayer.style.top = (window.innerHeight - musicPlayer.offsetHeight - 20) + 'px';
-        musicPlayer.style.right = 'auto';
-        musicPlayer.style.bottom = 'auto';
-        let isDragging = false;
-        let offsetX = 0;
-        let offsetY = 0;
-        musicPlayer.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            offsetX = e.clientX - musicPlayer.getBoundingClientRect().left;
-            offsetY = e.clientY - musicPlayer.getBoundingClientRect().top;
-            musicPlayer.style.transition = 'none';
-            musicPlayer.style.cursor = 'grabbing';
+    const musicToggle = document.getElementById('musicToggle');
+
+    if (musicPlayer && musicToggle) {
+        // Estado inicial: colapsado
+        let isExpanded = false;
+
+        // Función para toggle del reproductor
+        const toggleMusicPlayer = () => {
+            isExpanded = !isExpanded;
+
+            if (isExpanded) {
+                musicPlayer.classList.add('expanded');
+                console.log('Reproductor expandido'); // Debug
+            } else {
+                musicPlayer.classList.remove('expanded');
+                console.log('Reproductor colapsado'); // Debug
+            }
+        };
+
+        // Event listeners
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMusicPlayer();
         });
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                let x = e.clientX - offsetX;
-                let y = e.clientY - offsetY;
-                x = Math.max(0, Math.min(window.innerWidth - musicPlayer.offsetWidth, x));
-                y = Math.max(0, Math.min(window.innerHeight - musicPlayer.offsetHeight, y));
-                musicPlayer.style.left = x + 'px';
-                musicPlayer.style.top = y + 'px';
-                musicPlayer.style.right = 'auto';
-                musicPlayer.style.bottom = 'auto';
-                musicPlayer.style.position = 'fixed';
+
+        // Auto-colapsar al hacer click fuera (opcional)
+        document.addEventListener('click', (e) => {
+            if (isExpanded && !musicPlayer.contains(e.target)) {
+                isExpanded = false;
+                musicPlayer.classList.remove('expanded');
+                console.log('Reproductor auto-colapsado'); // Debug
             }
         });
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            musicPlayer.style.cursor = 'grab';
-        });
-        // Touch
-        musicPlayer.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            const touch = e.touches[0];
-            offsetX = touch.clientX - musicPlayer.getBoundingClientRect().left;
-            offsetY = touch.clientY - musicPlayer.getBoundingClientRect().top;
-            musicPlayer.style.transition = 'none';
-        });
-        document.addEventListener('touchmove', (e) => {
-            if (isDragging) {
-                const touch = e.touches[0];
-                let x = touch.clientX - offsetX;
-                let y = touch.clientY - offsetY;
-                x = Math.max(0, Math.min(window.innerWidth - musicPlayer.offsetWidth, x));
-                y = Math.max(0, Math.min(window.innerHeight - musicPlayer.offsetHeight, y));
-                musicPlayer.style.left = x + 'px';
-                musicPlayer.style.top = y + 'px';
-                musicPlayer.style.right = 'auto';
-                musicPlayer.style.bottom = 'auto';
-                musicPlayer.style.position = 'fixed';
-            }
-        });
-        document.addEventListener('touchend', () => {
-            isDragging = false;
+
+        // Prevenir que el click en el player lo cierre
+        musicPlayer.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     }
 
@@ -90,21 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = lightbox.querySelector('img');
     document.querySelectorAll('.work-item img').forEach(img => {
         img.style.cursor = 'pointer';
-        img.addEventListener('click', function() {
+        img.addEventListener('click', function () {
             lightboxImg.src = img.src;
             lightboxImg.alt = img.alt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
     });
-    lightbox.addEventListener('click', function() {
+    lightbox.addEventListener('click', function () {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     });
-    lightboxImg.addEventListener('click', function(e) {
+    lightboxImg.addEventListener('click', function (e) {
         e.stopPropagation();
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
