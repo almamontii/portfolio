@@ -687,12 +687,40 @@ footer {
     }
 }
 
+/* Desktop Music Player - Ensure proper positioning */
+@media (min-width: 769px) {
+    .music-player {
+        position: fixed;
+        top: 50%;
+        right: -300px;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 152px;
+        bottom: auto;
+    }
+
+    .music-player.expanded {
+        right: 0;
+    }
+
+    .music-toggle-btn {
+        position: absolute;
+        left: -54px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 20px 12px;
+        font-size: 14px;
+        min-height: 80px;
+        width: 54px;
+    }
+}
+
 /* About Section Styles */
 .about-section {
     grid-column: 1 / -1;
     padding: 0;
     margin-top: 3rem;
-    background-image: url('images/about m.jpg');
+    background-image: url('images/Copia%20de%20about%20m.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1139,5 +1167,87 @@ footer {
     .social-links-contact {
         justify-content: center;
         flex-wrap: wrap;
+    }
+}
+
+/* Mobile Pages Styles - Default desktop configuration */
+.mobile-about,
+.mobile-contact {
+    grid-column: 1 / -1;
+    padding: 0;
+    background-image: url('images/Copia%20de%20about%20m.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.mobile-about-content,
+.mobile-contact-content {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: calc(100% - 2rem) !important;
+    height: auto !important;
+    padding: 2rem 1.5rem !important;
+    text-align: center;
+    background: transparent;
+    margin: 2rem 1rem;
+    border-radius: 15px;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+/* Mobile responsive styles for mobile pages */
+@media (max-width: 768px) {
+
+    .mobile-about-content,
+    .mobile-contact-content {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem 1rem !important;
+        width: calc(100% - 1rem) !important;
+    }
+
+    .mobile-about,
+    .mobile-contact {
+        margin-top: 18rem;
+    }
+
+    body.header-condensed .mobile-about,
+    body.header-condensed .mobile-contact {
+        margin-top: 5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .mobile-about-content,
+    .mobile-contact-content {
+        margin: 0.5rem 0.25rem;
+        padding: 1rem 0.8rem !important;
+        width: calc(100% - 0.5rem) !important;
+    }
+
+    .mobile-about,
+    .mobile-contact {
+        margin-top: 16rem;
+    }
+}
+
+/* Mobile: Use specific mobile images */
+@media (max-width: 768px) {
+    .mobile-about {
+        background-image: url('images/mobile-about.jpg');
+    }
+
+    .mobile-contact {
+        background-image: url('images/mobile-contact.jpg');
+    }
+
+    /* Hide About/Contact section on mobile home page */
+    .about-section:not(.mobile-about):not(.mobile-contact) {
+        display: none;
     }
 }
