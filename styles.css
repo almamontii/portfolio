@@ -63,22 +63,69 @@ select {
     min-height: 100vh;
 }
 
+/* Sticky Header */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 2rem 2rem;
+}
+
+.sticky-header.condensed {
+    padding: 0.5rem 2rem;
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-self: start;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+}
+
+.side-nav {
+    justify-self: end;
+}
+
 /* Header */
 header {
-    padding: 1rem 2rem;
+    padding: 0;
 }
 
 .header-icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0;
+    transition: all 0.3s ease;
 }
 
 .header-icon {
     width: 150px;
     height: 150px;
-    object-fit: contain;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    transition: all 0.3s ease;
+}
+
+.sticky-header.condensed .header-icon {
+    width: 60px;
+    height: 60px;
 }
 
 header h1 {
@@ -92,8 +139,12 @@ header h1 {
     font-weight: 900;
     letter-spacing: -0.02em;
     margin-bottom: 0;
-    transform: translateX(-0.5rem);
     color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.sticky-header.condensed .artistic-title {
+    font-size: 2rem;
 }
 
 .subtitle {
@@ -103,18 +154,22 @@ header h1 {
     color: var(--text-color);
     margin-top: 0.5rem;
     margin-bottom: 0;
-    transform: translateX(-0.3rem);
     opacity: 0.8;
     letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.sticky-header.condensed .subtitle {
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
 }
 
 /* Navigation Styles */
 .side-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 1rem 2rem;
+    position: relative;
+    padding: 0;
     z-index: 100;
+    justify-self: end;
 }
 
 .nav-content {
@@ -139,8 +194,14 @@ header h1 {
 /* Main Content */
 main {
     padding: 0;
-    margin-top: 2rem;
+    margin-top: 16rem;
+    /* Espacio para el sticky header más grande */
     grid-column: 1 / -1;
+}
+
+body.header-condensed main {
+    margin-top: 6rem !important;
+    /* Menos espacio cuando está condensado */
 }
 
 .works-grid {
@@ -304,6 +365,70 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .sticky-header {
+        padding: 1.5rem 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1.2rem;
+        text-align: center;
+    }
+
+    .sticky-header.condensed {
+        padding: 0.3rem 1rem;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: auto;
+        gap: 0.5rem;
+        text-align: left;
+    }
+
+    .header-left {
+        gap: 1rem;
+        justify-self: center;
+        order: 1;
+    }
+
+    .sticky-header.condensed .header-left {
+        justify-self: start;
+        order: 0;
+    }
+
+    .header-center {
+        order: 0;
+        justify-self: center;
+    }
+
+    .sticky-header.condensed .header-center {
+        order: 1;
+    }
+
+    .side-nav {
+        justify-self: center;
+        order: 2;
+    }
+
+    .sticky-header.condensed .side-nav {
+        justify-self: end;
+        order: 2;
+    }
+
+    .artistic-title {
+        font-size: 3.5rem;
+    }
+
+    .sticky-header.condensed .artistic-title {
+        font-size: 1.5rem;
+    }
+
+    .header-icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .sticky-header.condensed .header-icon {
+        width: 50px;
+        height: 50px;
+    }
+
     .works-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
@@ -316,16 +441,65 @@ footer {
     }
 
     .nav-content {
-        flex-direction: column;
         gap: 1rem;
     }
 
-    .artistic-title {
-        font-size: 1.5rem;
+    main {
+        margin-top: 18rem;
+    }
+
+    body.header-condensed main {
+        margin-top: 5rem !important;
     }
 }
 
 @media (max-width: 480px) {
+    .sticky-header {
+        padding: 1rem 0.8rem;
+    }
+
+    .sticky-header.condensed {
+        padding: 0.2rem 0.8rem;
+    }
+
+    main {
+        margin-top: 16rem;
+    }
+
+    .artistic-title {
+        font-size: 2.5rem;
+    }
+
+    .sticky-header.condensed .artistic-title {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .sticky-header.condensed .subtitle {
+        font-size: 0.7rem;
+    }
+
+    .header-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sticky-header.condensed .header-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-content {
+        gap: 1rem;
+    }
+
+    .nav-content a {
+        font-size: 0.8rem;
+    }
+
     .works-grid {
         grid-template-columns: repeat(2, 1fr);
     }
