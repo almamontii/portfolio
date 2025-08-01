@@ -390,38 +390,126 @@ footer {
 /* Music Player Styles */
 .music-player {
     position: fixed;
-    left: auto;
-    top: auto;
-    bottom: 20px;
-    right: 20px;
-    cursor: grab;
-    cursor: grab;
+    top: 50%;
+    right: -300px;
+    /* Oculto por defecto */
+    transform: translateY(-50%);
     z-index: 1000;
+    background: #121212;
+    border-radius: 12px 0 0 12px;
+    overflow: visible;
+    /* Permitir que el botón se vea */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 300px;
+    height: 152px;
+}
+
+/* Estado expandido */
+.music-player.expanded {
+    right: 0;
+    /* Se desliza hacia dentro */
+}
+
+/* Bookmark/Señalador que siempre está visible */
+.music-toggle-btn {
+    position: absolute;
+    left: -70px;
+    /* Sobresale del lado izquierdo del player */
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #e74c3c, #ff6b6b);
+    color: white;
+    padding: 20px 12px;
+    border-radius: 12px 0 0 12px;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    user-select: none;
+    z-index: 1001;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-toggle-btn:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    transform: translateY(-50%) translateX(-3px);
+    box-shadow: -6px 0 20px rgba(231, 76, 60, 0.4);
+}
+
+/* Efecto cuando está activo */
+.music-player.expanded .music-toggle-btn {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+.music-content {
     width: 300px;
     height: 152px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    background: #121212;
+}
+
+.music-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .music-player {
+        top: auto;
         bottom: 20px;
-        right: 20px;
-        padding: 10px 15px;
-        gap: 10px;
+        right: -250px;
+        /* Oculto en móvil */
+        width: 250px;
+        height: 120px;
     }
 
-    .music-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
+    .music-player.expanded {
+        right: 0;
     }
 
-    .song-title {
+    .music-content {
+        width: 250px;
+        height: 120px;
+    }
+
+    .music-toggle-btn {
+        left: -60px;
+        padding: 15px 10px;
         font-size: 12px;
+        min-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-player {
+        right: -220px;
+        width: 220px;
+        height: 100px;
+    }
+
+    .music-content {
+        width: 220px;
+        height: 100px;
+    }
+
+    .music-toggle-btn {
+        left: -55px;
+        padding: 12px 8px;
+        font-size: 11px;
+        min-height: 50px;
     }
 }
 
