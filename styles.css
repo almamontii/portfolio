@@ -642,49 +642,20 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     .music-player {
-        top: auto;
-        bottom: 20px;
-        right: -250px;
-        /* Oculto en móvil */
-        width: 250px;
-        height: 120px;
+        display: none !important;
+        /* Oculto completamente en vista móvil */
     }
 
-    .music-player.expanded {
-        right: 0;
-    }
 
-    .music-content {
-        width: 250px;
-        height: 120px;
-    }
-
-    .music-toggle-btn {
-        left: -60px;
-        padding: 15px 10px;
-        font-size: 12px;
-        min-height: 60px;
-    }
 }
 
 @media (max-width: 480px) {
     .music-player {
-        right: -220px;
-        width: 220px;
-        height: 100px;
+        display: none !important;
+        /* Oculto completamente en vista móvil */
     }
 
-    .music-content {
-        width: 220px;
-        height: 100px;
-    }
 
-    .music-toggle-btn {
-        left: -55px;
-        padding: 12px 8px;
-        font-size: 11px;
-        min-height: 50px;
-    }
 }
 
 /* Desktop Music Player - Ensure proper positioning */
