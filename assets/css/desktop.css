@@ -4,6 +4,11 @@
 @media (min-width: 769px) and (orientation: portrait),
 (min-width: 1025px) {
 
+    /* Hide the horizontal info section in desktop - only show main about section */
+    #info-horizontal {
+        display: none !important;
+    }
+
     /* Hide the contact link completely on desktop */
     #contact-link {
         display: none;
