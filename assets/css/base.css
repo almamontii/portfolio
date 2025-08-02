@@ -195,7 +195,7 @@ header h1 {
 /* Main Content */
 main {
     padding: 0;
-    margin-top: 16rem;
+    margin-top: 20rem;
     grid-column: 1 / -1;
 }
 
@@ -204,26 +204,35 @@ body.header-condensed main {
 }
 
 /* Smooth scroll navigation anchors */
-#sobre-mi {
+#sobre-mi,
+#about-me {
     scroll-margin-top: 120px;
     transition: scroll-margin-top 0.3s ease;
 }
 
 /* Desktop condensed header */
-body.header-condensed #sobre-mi {
+body.header-condensed #sobre-mi,
+body.header-condensed #about-me {
     scroll-margin-top: 80px;
     transition: scroll-margin-top 0.3s ease;
 }
 
 /* Responsive scroll-margin-top for mobile devices */
 @media (max-width: 768px) {
-    #sobre-mi {
+
+    #sobre-mi,
+    #about-me {
         scroll-margin-top: 288px;
         /* 18rem for normal header */
         transition: scroll-margin-top 0.3s ease;
     }
 
-    body.header-condensed #sobre-mi {
+    #about-me {
+        margin-top: 260px;
+    }
+
+    body.header-condensed #sobre-mi,
+    body.header-condensed #about-me {
         scroll-margin-top: 80px;
         /* 5rem for condensed header */
         transition: scroll-margin-top 0.3s ease;
@@ -231,13 +240,20 @@ body.header-condensed #sobre-mi {
 }
 
 @media (max-width: 480px) {
-    #sobre-mi {
+
+    #sobre-mi,
+    #about-me {
         scroll-margin-top: 256px;
         /* 16rem for normal header */
         transition: scroll-margin-top 0.3s ease;
     }
 
-    body.header-condensed #sobre-mi {
+    #about-me {
+        margin-top: 260px;
+    }
+
+    body.header-condensed #sobre-mi,
+    body.header-condensed #about-me {
         scroll-margin-top: 80px;
         /* 5rem for condensed header */
         transition: scroll-margin-top 0.3s ease;
