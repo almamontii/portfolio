@@ -218,7 +218,8 @@ body.header-condensed #about-me {
 }
 
 /* Responsive scroll-margin-top for mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 768px),
+(max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
 
     #sobre-mi,
     #about-me {
@@ -239,7 +240,8 @@ body.header-condensed #about-me {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px),
+(max-height: 400px) and (orientation: landscape) and (max-width: 854px) {
 
     #sobre-mi,
     #about-me {

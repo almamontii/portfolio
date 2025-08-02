@@ -1,6 +1,7 @@
 /* Mobile specific styles */
 
-@media (max-width: 768px) {
+@media (max-width: 768px),
+(max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
 
     /* Hide music player on mobile */
     .music-player {
@@ -148,7 +149,8 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px),
+(max-height: 400px) and (orientation: landscape) and (max-width: 854px) {
 
     /* Small mobile specific styles */
     .sticky-header {
@@ -224,5 +226,382 @@
     .mobile-about {
         margin-top: 24rem;
         padding-top: 2rem;
+    }
+}
+
+/* Reset horizontal container for non-landscape views */
+@media (orientation: portrait),
+(min-width: 1025px),
+(orientation: landscape) and (min-height: 500px) and (min-width: 1025px) {
+    .horizontal-scroll-container {
+        display: block;
+        height: auto;
+        overflow: visible;
+    }
+
+    .horizontal-section {
+        flex: none;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        padding: 0;
+    }
+}
+
+/* Mobile Landscape Horizontal Scroll View */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
+
+    /* Hide music player in landscape mobile */
+    .music-player {
+        display: none !important;
+    }
+
+    /* Compact header for landscape */
+    .sticky-header {
+        padding: 0.5rem 1rem;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto;
+        gap: 1rem;
+        text-align: left;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        height: 60px;
+        min-height: 60px;
+    }
+
+    .header-left {
+        order: 0;
+        justify-self: start;
+        gap: 0.5rem;
+    }
+
+    .header-center {
+        order: 1;
+        justify-self: center;
+    }
+
+    .side-nav {
+        order: 2;
+        justify-self: end;
+    }
+
+    /* Compact header elements */
+    .artistic-title {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+        margin-top: 0;
+        line-height: 1;
+    }
+
+    .header-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-content {
+        gap: 1rem;
+    }
+
+    .nav-content a {
+        font-size: 0.7rem;
+    }
+
+    /* Main content adjustments */
+    main {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+        overflow: hidden;
+    }
+
+    /* Create horizontal scroll container */
+    .horizontal-scroll-container {
+        display: flex !important;
+        width: 100vw;
+        height: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        flex-direction: row;
+    }
+
+    /* Individual sections as horizontal panels */
+    .horizontal-section {
+        flex: 0 0 100vw !important;
+        width: 100vw !important;
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100%;
+        overflow-y: auto;
+        scroll-snap-align: start;
+        padding: 1rem;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    /* Works grid for landscape */
+    .works-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+        padding: 0;
+        width: 100%;
+        height: fit-content;
+        margin: 0;
+    }
+
+    .work-item {
+        aspect-ratio: 1;
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .work-item:nth-child(3n + 1) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* About section in landscape */
+    .about-section {
+        display: block !important;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .about-container {
+        height: 100%;
+        padding: 0;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        height: 100%;
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .about-info {
+        margin-bottom: 1rem;
+    }
+
+    .main-about-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .about-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .about-description {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .about-text-small {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+    }
+
+    .about-section-title {
+        font-size: 1rem;
+        margin: 1rem 0 0.5rem 0;
+        color: var(--accent-color);
+    }
+
+    /* Contact section in landscape */
+    .contact-info-section {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .contact-email {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .contact-email:hover {
+        text-decoration: underline;
+    }
+
+    .instagram-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .instagram-link:hover {
+        text-decoration: underline;
+    }
+
+    .commission-note {
+        font-size: 0.7rem;
+        margin-top: 1rem;
+        opacity: 0.8;
+        font-style: italic;
+    }
+
+    /* Hide footer in landscape mode */
+    footer {
+        display: none;
+    }
+
+    /* Scroll indicators */
+    .horizontal-scroll-container::after {
+        content: '';
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        z-index: 100;
+    }
+
+    /* Custom scrollbar for horizontal scroll */
+    .horizontal-scroll-container::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 2px;
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 0, 0.8);
+    }
+
+    /* Navigation adjustments for landscape */
+    .nav-content a[href="#sobre-mi"],
+    .nav-content a[href="#contact-section"],
+    #about-link,
+    #contact-link {
+        display: none !important;
+    }
+
+    /* Reset any desktop pseudo-content */
+    #about-link::after {
+        display: none !important;
+    }
+
+    /* Add navigation hints */
+    .horizontal-section:first-child::before {
+        content: 'Gallery • Swipe →';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 4px 8px;
+        border-radius: 12px;
+        z-index: 10;
+    }
+
+    .horizontal-section:nth-child(2)::before {
+        content: 'About • Swipe ←→';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 4px 8px;
+        border-radius: 12px;
+        z-index: 10;
+    }
+
+    .horizontal-section:last-child::before {
+        content: 'Contact • ← Swipe';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 4px 8px;
+        border-radius: 12px;
+        z-index: 10;
+    }
+
+    /* Touch improvements */
+    .horizontal-scroll-container {
+        -webkit-overflow-scrolling: touch;
+        scroll-padding: 0;
+    }
+
+    /* Better spacing for touch interaction */
+    .work-image {
+        border-radius: 4px;
+    }
+
+    /* Ensure lightbox still works in landscape */
+    .lightbox {
+        z-index: 2000;
+    }
+
+    /* Section position indicators */
+    .horizontal-section {
+        position: relative;
+    }
+
+    /* Override scroll-margin-top for horizontal sections */
+    #sobre-mi,
+    #about-me,
+    #sobre-mi-horizontal,
+    #contact-section-horizontal {
+        scroll-margin-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* Debug: Visual indicators for each section */
+    .horizontal-section:nth-child(1) {
+        border-left: 3px solid #ff0000;
+        /* Red for gallery */
+    }
+
+    .horizontal-section:nth-child(2) {
+        border-left: 3px solid #00ff00;
+        /* Green for about */
+    }
+
+    .horizontal-section:nth-child(3) {
+        border-left: 3px solid #0000ff;
+        /* Blue for contact */
+    }
+
+    /* Ensure main content takes full width */
+    main {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
