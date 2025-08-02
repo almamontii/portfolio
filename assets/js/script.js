@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactLink.href = 'contact.html';
             }
         } else {
-            // En desktop, mantener navegación por secciones
+            // En desktop, ambos links "Info" van a la sección sobre-mi
             if (aboutLink) {
                 aboutLink.href = '#sobre-mi';
             }
             if (contactLink) {
-                contactLink.href = '#contact-section';
+                contactLink.href = '#sobre-mi';
             }
         }
     }
@@ -59,6 +59,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Llamar una vez al cargar la página
     updateHeader();
 
+    // --- ANCHOR LINK HANDLING ---
+    // Manejar clics en links de anchor para evitar glitches
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (link) {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Calcular la posición final del elemento
+                const targetRect = targetElement.getBoundingClientRect();
+                const targetScrollPosition = window.scrollY + targetRect.top;
+
+                // Determinar si el header estará condensado en la posición final
+                const willBeCondensed = targetScrollPosition > 100;
+
+                // Aplicar pre-emptivamente la clase condensed si será necesaria
+                if (willBeCondensed && !isCondensed) {
+                    stickyHeader.classList.add('condensed');
+                    document.body.classList.add('header-condensed');
+                    isCondensed = true;
+                }
+
+                // Scroll con el margin correcto ya aplicado
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 50);
+            }
+        }
+    });
+
     // --- MUSIC PLAYER COLLAPSIBLE ---
     const musicPlayer = document.getElementById('musicPlayer');
     const musicToggle = document.getElementById('musicToggle');
@@ -73,10 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isExpanded) {
                 musicPlayer.classList.add('expanded');
-                console.log('Reproductor expandido'); // Debug
             } else {
                 musicPlayer.classList.remove('expanded');
-                console.log('Reproductor colapsado'); // Debug
             }
         };
 
@@ -91,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isExpanded && !musicPlayer.contains(e.target)) {
                 isExpanded = false;
                 musicPlayer.classList.remove('expanded');
-                console.log('Reproductor auto-colapsado'); // Debug
             }
         });
 

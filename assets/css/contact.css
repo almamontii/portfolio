@@ -1,0 +1,255 @@
+/* Contact page specific styles */
+
+/* Contact section positioning for desktop about page */
+.contact-info-section {
+    position: absolute;
+    left: 65%;
+    top: 10%;
+    width: 35%;
+    z-index: 10;
+    scroll-margin-top: 120px;
+}
+
+/* Contact Section - Match About section styling */
+.contact-info-section .about-title {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+    text-shadow: 0.5px 0.5px 0px #000000, -0.5px -0.5px 0px #000000;
+}
+
+.contact-info-section .about-description {
+    font-size: 16px !important;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    color: #000000 !important;
+    font-weight: 400 !important;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.contact-info-section .about-text-small {
+    font-size: 16px !important;
+    line-height: 1.3;
+    color: #000000 !important;
+    margin-bottom: 0.5rem;
+    margin-top: 1.2rem;
+    font-weight: 700 !important;
+    font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+    text-shadow: 0.5px 0.5px 0px #000000, -0.5px -0.5px 0px #000000;
+}
+
+.contact-label {
+    font-weight: 700 !important;
+    color: #000000 !important;
+    font-size: 16px !important;
+    font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+    text-shadow: 0.5px 0.5px 0px #000000, -0.5px -0.5px 0px #000000;
+}
+
+.contact-email {
+    font-weight: 400 !important;
+    color: #000000 !important;
+    font-size: 16px !important;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.instagram-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0.8rem 0;
+    display: block;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    text-align: left;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.instagram-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.commission-note {
+    font-size: 14px;
+    color: #000;
+    text-shadow: 0.5px 0.5px 0px #000, -0.5px -0.5px 0px #000, 0.5px -0.5px 0px #000, -0.5px 0.5px 0px #000;
+    margin-top: 2.5rem;
+    margin-left: 1rem;
+}
+
+/* Contact Section Styles - Standalone */
+.contact-section {
+    grid-column: 1 / -1;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.98);
+    border-top: 1px solid rgba(255, 255, 0, 0.2);
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-info h3 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.contact-methods {
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 0, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 0, 0.1);
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+}
+
+.contact-text {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.social-contact h4 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.social-links-contact {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 0, 0.3);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Mobile Contact Page Specific */
+@media (max-width: 768px) {
+    .mobile-contact-content {
+        padding: 3rem 2rem !important;
+        margin: 0 !important;
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 100vh !important;
+        position: absolute !important;
+        top: 40% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 100% !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .mobile-contact-content p {
+        margin-bottom: 1.5rem !important;
+        font-size: 16px !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content p:has(+ a) {
+        margin-bottom: -1rem !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content .contact-email,
+    .mobile-contact-content .instagram-link {
+        color: #ffffff !important;
+        text-shadow: none !important;
+        text-decoration: underline !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content .commission-note {
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    .mobile-contact-content .contact-label {
+        color: #ffffff !important;
+        text-shadow: none !important;
+        font-family: "Intel One Mono", monospace !important;
+    }
+
+    /* Fix: Reduce top margin and show footer sooner on Contact mobile view */
+    .mobile-contact {
+        margin-top: 8rem;
+        min-height: auto !important;
+    }
+
+    .mobile-contact-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        min-height: auto !important;
+        justify-content: flex-start !important;
+        padding-top: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-contact {
+        margin-top: 18rem;
+    }
+}
