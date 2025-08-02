@@ -98,23 +98,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicPlayer = document.getElementById('musicPlayer');
     const musicToggle = document.getElementById('musicToggle');
 
+    console.log('Music player element:', musicPlayer);
+    console.log('Music toggle element:', musicToggle);
+
     if (musicPlayer && musicToggle) {
         // Estado inicial: colapsado
         let isExpanded = false;
 
         // Función para toggle del reproductor
         const toggleMusicPlayer = () => {
+            console.log('Toggle music player clicked');
             isExpanded = !isExpanded;
 
             if (isExpanded) {
                 musicPlayer.classList.add('expanded');
+                console.log('Music player expanded');
             } else {
                 musicPlayer.classList.remove('expanded');
+                console.log('Music player collapsed');
             }
         };
 
         // Event listeners
         musicToggle.addEventListener('click', (e) => {
+            console.log('Music toggle clicked');
             e.stopPropagation();
             toggleMusicPlayer();
         });
@@ -131,6 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
         musicPlayer.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    } else {
+        console.error('Music player elements not found');
     }
 
     // --- GALERÍA EFECTOS Y LIGHTBOX ---
@@ -264,4 +273,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// --- SPOTIFY EMBED FALLBACK ---
+window.handleIframeLoad = function () {
+    console.log('Spotify iframe loaded successfully');
+    const fallback = document.getElementById('musicFallback');
+    const iframe = document.getElementById('spotifyEmbed');
+
+    // Verificar si el iframe cargó correctamente después de un delay
+    setTimeout(() => {
+        try {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            if (iframeDoc.body.innerHTML.includes('error') || iframeDoc.body.innerHTML.includes('upstream')) {
+                showFallback();
+            }
+        } catch (e) {
+            // Si hay error de CORS, probablemente el iframe esté funcionando
+            console.log('Iframe loaded (CORS expected)');
+        }
+    }, 3000);
+};
+
+window.handleIframeError = function () {
+    console.log('Spotify iframe failed to load');
+    showFallback();
+};
+
+function showFallback() {
+    console.log('Showing Spotify fallback');
+    const fallback = document.getElementById('musicFallback');
+    const iframe = document.getElementById('spotifyEmbed');
+    if (fallback && iframe) {
+        fallback.style.display = 'block';
+        iframe.style.display = 'none';
+    }
+}
+
+// Verificar después de 5 segundos si el iframe sigue mostrando error
+setTimeout(() => {
+    const iframe = document.getElementById('spotifyEmbed');
+    if (iframe && iframe.style.display !== 'none') {
+        try {
+            // Si después de 5 segundos seguimos con problemas, mostrar fallback
+            const iframeWindow = iframe.contentWindow;
+            if (!iframeWindow || iframe.clientHeight === 0) {
+                showFallback();
+            }
+        } catch (e) {
+            // Error de CORS es normal, significa que probablemente está funcionando
+        }
+    }
+}, 5000);
 
