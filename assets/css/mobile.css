@@ -214,4 +214,9 @@
     .mobile-contact {
         margin-top: 16rem;
     }
+
+    /* Updated mobile about margin */
+    .mobile-about {
+        margin-top: 20rem;
+    }
 }

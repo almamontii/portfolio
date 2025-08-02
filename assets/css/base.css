@@ -203,6 +203,11 @@ body.header-condensed main {
     margin-top: 6rem !important;
 }
 
+/* Smooth scroll navigation anchors */
+#sobre-mi {
+    scroll-margin-top: 120px;
+}
+
 /* Footer */
 footer {
     grid-column: 1 / -1;

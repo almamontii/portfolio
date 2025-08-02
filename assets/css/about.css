@@ -20,6 +20,12 @@
     position: relative;
 }
 
+@media (max-width: 480px) {
+    .about-container {
+        height: 50vh;
+    }
+}
+
 .about-content {
     position: absolute;
     top: 0;

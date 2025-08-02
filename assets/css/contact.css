@@ -7,6 +7,7 @@
     top: 10%;
     width: 35%;
     z-index: 10;
+    scroll-margin-top: 120px;
 }
 
 /* Contact Section - Match About section styling */
@@ -228,5 +229,27 @@
         color: #ffffff !important;
         text-shadow: none !important;
         font-family: "Intel One Mono", monospace !important;
+    }
+
+    /* Fix: Reduce top margin and show footer sooner on Contact mobile view */
+    .mobile-contact {
+        margin-top: 8rem;
+        min-height: auto !important;
+    }
+
+    .mobile-contact-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        min-height: auto !important;
+        justify-content: flex-start !important;
+        padding-top: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-contact {
+        margin-top: 18rem;
     }
 }
