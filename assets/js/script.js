@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactLink.href = 'contact.html';
             }
         } else {
-            // En desktop, mantener navegación por secciones
+            // En desktop, ambos links "Info" van a la sección sobre-mi
             if (aboutLink) {
                 aboutLink.href = '#sobre-mi';
             }
             if (contactLink) {
-                contactLink.href = '#contact-section';
+                contactLink.href = '#sobre-mi';
             }
         }
     }

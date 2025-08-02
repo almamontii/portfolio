@@ -1,5 +1,29 @@
 /* Desktop specific styles */
 
+/* Desktop Navigation - Show only one "Info" link */
+@media (min-width: 769px) {
+
+    /* Hide the contact link completely on desktop */
+    #contact-link {
+        display: none;
+    }
+
+    /* Change About link to "Info" */
+    #about-link {
+        font-size: 0 !important;
+    }
+
+    #about-link::after {
+        content: "Info";
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+        color: var(--text-color);
+        font-family: var(--title-font);
+    }
+}
+
 /* Music Player Styles - Desktop Only */
 @media (min-width: 769px) {
     .music-player {
