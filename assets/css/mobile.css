@@ -1,6 +1,7 @@
 /* Mobile specific styles */
 
 @media (max-width: 768px) {
+
     /* Hide music player on mobile */
     .music-player {
         display: none !important;
@@ -109,12 +110,14 @@
 
     .mobile-about,
     .mobile-contact {
-        margin-top: 18rem;
+        margin-top: 22rem;
+        padding-top: 2rem;
     }
 
     body.header-condensed .mobile-about,
     body.header-condensed .mobile-contact {
-        margin-top: 5rem !important;
+        margin-top: 8rem !important;
+        padding-top: 2rem;
     }
 
     /* Mobile About/Contact content styles */
@@ -146,6 +149,7 @@
 }
 
 @media (max-width: 480px) {
+
     /* Small mobile specific styles */
     .sticky-header {
         padding: 1rem 0.8rem;
@@ -212,11 +216,13 @@
 
     .mobile-about,
     .mobile-contact {
-        margin-top: 16rem;
+        margin-top: 20rem;
+        padding-top: 2rem;
     }
 
     /* Updated mobile about margin */
     .mobile-about {
-        margin-top: 20rem;
+        margin-top: 24rem;
+        padding-top: 2rem;
     }
 }

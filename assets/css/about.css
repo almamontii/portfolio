@@ -179,7 +179,7 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    margin-top: 3rem;
+    margin-top: 0;
     position: relative;
 }
 
@@ -193,7 +193,7 @@
     padding: 2rem 1.5rem !important;
     text-align: center;
     background: transparent;
-    margin: 2rem 1rem;
+    margin: 1rem;
     border-radius: 15px;
     box-shadow: none;
     backdrop-filter: none;
@@ -201,6 +201,7 @@
 
 /* Mobile About Page - Red Background */
 @media (max-width: 768px) {
+
     .mobile-about,
     .mobile-contact {
         background-image: none !important;
