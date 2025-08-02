@@ -689,6 +689,11 @@ footer {
         min-height: 80px;
         width: 54px;
     }
+
+    #sobre-mi {
+        scroll-margin-top: 120px;
+        /* Account for sticky header height */
+    }
 }
 
 /* About Section Styles */
@@ -748,6 +753,8 @@ footer {
     top: 10%;
     width: 35%;
     z-index: 10;
+    scroll-margin-top: 120px;
+    /* Account for sticky header height */
 }
 
 /* About Text Styles - Negro, bold, tamaño 16 */
