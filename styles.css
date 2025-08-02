@@ -655,7 +655,12 @@ footer {
         /* Oculto completamente en vista móvil */
     }
 
-
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 50vh;
+        position: relative;
+    }
 }
 
 /* Desktop Music Player - Ensure proper positioning */
@@ -704,6 +709,13 @@ footer {
     margin: 0 auto;
     height: 100vh;
     position: relative;
+}
+
+@media (max-width: 480px) {
+
+    .about-container {
+        height: 50vh;
+    }
 }
 
 .about-content {
@@ -1203,7 +1215,7 @@ footer {
 
     .mobile-about,
     .mobile-contact {
-        margin-top: 16rem;
+        margin-top: 20rem;
     }
 }
 
@@ -1315,5 +1327,29 @@ footer {
     /* Hide About/Contact section on mobile home page */
     .about-section:not(.mobile-about):not(.mobile-contact) {
         display: none;
+    }
+}
+
+/* Fix: Reduce top margin and show footer sooner on Contact mobile view */
+@media (max-width: 768px) {
+    .mobile-contact {
+        margin-top: 8rem;
+        min-height: auto !important;
+    }
+
+    .mobile-contact-content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        min-height: auto !important;
+        justify-content: flex-start !important;
+        padding-top: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-contact {
+        margin-top: 18rem;
     }
 }
