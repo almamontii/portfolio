@@ -73,10 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isExpanded) {
                 musicPlayer.classList.add('expanded');
-                console.log('Reproductor expandido'); // Debug
             } else {
                 musicPlayer.classList.remove('expanded');
-                console.log('Reproductor colapsado'); // Debug
             }
         };
 
@@ -91,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isExpanded && !musicPlayer.contains(e.target)) {
                 isExpanded = false;
                 musicPlayer.classList.remove('expanded');
-                console.log('Reproductor auto-colapsado'); // Debug
             }
         });
 

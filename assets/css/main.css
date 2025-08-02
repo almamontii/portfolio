@@ -1,0 +1,12 @@
+/* Main CSS file that imports all other stylesheets */
+
+/* Base styles - Common across all pages and devices */
+@import url('base.css');
+
+/* Device-specific styles */
+@import url('desktop.css');
+@import url('mobile.css');
+
+/* Page-specific styles */
+@import url('about.css');
+@import url('contact.css');
