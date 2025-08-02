@@ -1,7 +1,8 @@
 /* Desktop specific styles */
 
 /* Desktop Navigation - Show only one "Info" link */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (orientation: portrait),
+(min-width: 1025px) {
 
     /* Hide the contact link completely on desktop */
     #contact-link {
@@ -25,7 +26,8 @@
 }
 
 /* Music Player Styles - Desktop Only */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (orientation: portrait),
+(min-width: 1025px) {
     .music-player {
         position: fixed;
         top: 50%;
@@ -143,7 +145,8 @@
 }
 
 /* Desktop About Section */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (orientation: portrait),
+(min-width: 1025px) {
     .about-section {
         grid-column: 1 / -1;
         padding: 0;
@@ -197,7 +200,8 @@
 }
 
 /* Contact Section Styles - Desktop */
-@media (min-width: 769px) {
+@media (min-width: 769px) and (orientation: portrait),
+(min-width: 1025px) {
     .contact-section {
         grid-column: 1 / -1;
         padding: 4rem 2rem;
